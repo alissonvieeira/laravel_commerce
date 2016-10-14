@@ -4,13 +4,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'admin'], function(){
 
-Route::get('produtos', ['as' => 'produtos', function(){
-    echo Route::currentRouteName();
-    //return "Produtos";
-}]);
+    Route::get('products', function(){
+       return  "Products";
+    });
 
-
+});
 
 
 Route::pattern('id', '[0-9]+');
