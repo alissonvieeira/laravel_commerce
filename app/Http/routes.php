@@ -4,16 +4,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::pattern('id', '[0-9]+');
+
 Route::group(['prefix' => 'admin'], function(){
 
-    Route::get('products', function(){
-       return  "Products";
-    });
+    Route::get('categories', 'AdminCategoriesController@index');
+    Route::get('products', 'AdminProductsController');
 
 });
 
 
-Route::pattern('id', '[0-9]+');
+Route::get('category/{category}', function(\CodeCommerce\Category $category){
+    return $category->name;
+});
+
+
 
 Route::get('user/{id?}', function ($id =123) {
     if($id)
@@ -21,6 +26,8 @@ Route::get('user/{id?}', function ($id =123) {
 
     return "Não possui ID";
 });
+
+
 
 
 
