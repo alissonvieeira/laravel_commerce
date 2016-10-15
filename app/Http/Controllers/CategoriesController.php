@@ -37,6 +37,13 @@ class CategoriesController extends Controller
 
         $category->save();
 
-        return redirect('categories');
+        return redirect()->route('categories.index');
+    }
+
+    public function destroy($id)
+    {
+        $this->categoryModel->find($id)->delete();
+
+        return redirect()->route('categories.index');
     }
 }
