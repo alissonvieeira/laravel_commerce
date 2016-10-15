@@ -28,4 +28,15 @@ class CategoriesController extends Controller
     {
         return view('categories.create');
     }
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+
+        $category = $this->categoryModel->fill($input);
+
+        $category->save();
+
+        return redirect('categories');
+    }
 }
