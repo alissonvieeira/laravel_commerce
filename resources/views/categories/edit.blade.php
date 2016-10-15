@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Create Categories</h1>
+        <h1>Edit Categories</h1>
 
         @if($errors->any())
 
