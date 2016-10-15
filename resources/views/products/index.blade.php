@@ -6,7 +6,7 @@
 
         <br>
 
-        <a href="{{ route('products.create') }}" class="btn btn-primary">New Category</a>
+        <a href="{{ route('products.create') }}" class="btn btn-primary">New Product</a>
         <br>
         <br>
 
