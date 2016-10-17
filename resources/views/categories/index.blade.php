@@ -11,24 +11,34 @@
         <br>
 
         <table class="table">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Action</th>
-            </tr>
-
-            @foreach($categories as $category)
-            <tr>
-                <td>{{ $category->id }}</td>
-                <td>{{ $category->name }}</td>
-                <td>{{ $category->description }}</td>
-                <td>
-                    <a href="{{ route('categories.edit', ['id' => $category->id]) }}">Edit</a> |
-                    <a href="{{ route('categories.destroy', ['id' => $category->id]) }}">Delete</a>
-                </td>
-            </tr>
-            @endforeach
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($categories as $category)
+                    <tr>
+                        <td>{{ $category->id }}</td>
+                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->description }}</td>
+                        <td>
+                            <a href="{{ route('categories.edit', ['id' => $category->id]) }}">Edit</a> |
+                            <a href="{{ route('categories.destroy', ['id' => $category->id]) }}">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-center">
+                        {!! $categories->render() !!}
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 @endsection
