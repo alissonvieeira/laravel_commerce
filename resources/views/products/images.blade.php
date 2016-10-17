@@ -6,7 +6,7 @@
 
         <br>
 
-        <a href="{{ route('products.create') }}" class="btn btn-primary">New Product</a>
+        <a href="#  " class="btn btn-primary">New Image</a>
         <br>
         <br>
 
@@ -14,35 +14,26 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Featured</th>
-                    <th>Recommend</th>
+                    <th>Image</th>
+                    <th>Extension</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($products as $product)
+                @foreach($product->images as $image)
                 <tr>
-                    <td>{{ $product->id }}</td>
-                    <td>{{ $product->name }}</td>
-                    <td>{{ $product->description }}</td>
-                    <td>{{ $product->price }}</td>
-                    <td>{{ $product->category->name }}</td>
-                    <td>{{ $product->featured }}</td>
-                    <td>{{ $product->recommend }}</td>
+                    <td>{{ $image->id }}</td>
+                    <td></td>
+                    <td>{{ $image->extension }}</td>
                     <td>
-                        <a href="{{ route('products.edit', ['id' => $product->id]) }}">Edit</a> |
-                        <a href="{{ route('products.destroy', ['id' => $product->id]) }}">Delete</a>
+
                     </td>
                 </tr>
                 @endforeach
             </tbody>
             <tfoot>
-                <td colspan="8" class="text-center">
-                    {!! $products->render() !!}
+                <td colspan="4" class="text-center">
+
                 </td>
             </tfoot>
         </table>
