@@ -94,4 +94,18 @@ class ProductsController extends Controller
 
         return redirect()->route('products.images', ['id' => $id]);
     }
+
+    public function destroyImage(ProductImage $productImage, $id)
+    {
+        $image = $productImage->find($id);
+
+        if(file_exists(public_path() . '/uploads/'.$image->id.'.'.$image->extension)){
+            Storage::disk('public_local')->delete($image->id.'.'.$image->extension);
+        }
+
+        $product = $image->product;
+        $image->delete();
+
+        return redirect()->route('products.images', ['id' => $product->id]);
+    }
 }
