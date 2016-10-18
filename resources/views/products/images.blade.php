@@ -6,7 +6,7 @@
 
         <br>
 
-        <a href="#  " class="btn btn-primary">New Image</a>
+        <a href="{{ route('products.images.create', ['id' => $product->id]) }}" class="btn btn-primary">New Image</a>
         <br>
         <br>
 
