@@ -49,6 +49,11 @@
         </div>
 
         <div class="form-group">
+            {!! Form::label('tags', 'Tags:') !!}
+            {!! Form::textarea('tags', $product->getTagListAttribute(), ['class' => 'form-control']) !!}
+        </div>
+
+        <div class="form-group">
 
             {!! Form::submit('Save Product', ['class' => 'btn btn-primary']) !!}
 

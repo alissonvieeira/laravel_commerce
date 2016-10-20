@@ -39,6 +39,6 @@ class Product extends Model
     {
         $tags = $this->tags->lists('name');
 
-        return implode(',', $tags);
+        return $tags->implode(', ');
     }
 }

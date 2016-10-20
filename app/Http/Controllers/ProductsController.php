@@ -61,7 +61,11 @@ class ProductsController extends Controller
 
     public function update(Requests\ProductRequest $productRequest, $id)
     {
+        $arrayTags = $this->tagToArray($productRequest->tags);
+
         $this->productModel->find($id)->update($productRequest->all());
+
+        $this->productModel->find($id)->tags()->sync($arrayTags);
 
         return redirect()->route('products.index');
     }
