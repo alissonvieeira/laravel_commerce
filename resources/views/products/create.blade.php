@@ -49,6 +49,11 @@
         </div>
 
         <div class="form-group">
+            {!! Form::label('tags', 'Tag:') !!}
+            {!! Form::textarea('tags', null, ['class' => 'form-control']) !!}
+        </div>
+
+        <div class="form-group">
 
             {!! Form::submit('Add Product', ['class' => 'btn btn-primary']) !!}
 

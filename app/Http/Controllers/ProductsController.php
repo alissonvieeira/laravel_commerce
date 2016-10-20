@@ -5,6 +5,7 @@ namespace CodeCommerce\Http\Controllers;
 use CodeCommerce\Category;
 use CodeCommerce\Product;
 use CodeCommerce\ProductImage;
+use CodeCommerce\Tag;
 use Illuminate\Http\Request;
 
 use CodeCommerce\Http\Requests;
@@ -39,9 +40,12 @@ class ProductsController extends Controller
     {
         $input = $productRequest->all();
 
-        $product = $this->productModel->fill($input);
+        $arrayTags = $this->tagToArray($input['tags']);
 
+        $product = $this->productModel->fill($input);
         $product->save();
+
+        $product->tags()->sync($arrayTags);
 
         return redirect()->route('products.index');
     }
@@ -107,5 +111,17 @@ class ProductsController extends Controller
         $image->delete();
 
         return redirect()->route('products.images', ['id' => $product->id]);
+    }
+
+    private function tagToArray($tags)
+    {
+        $tags = explode(",", $tags);
+        $tags = array_map('trim', $tags);
+        $tagCollection = [];
+        foreach ($tags as $tag) {
+            $t = Tag::firstOrCreate(['name' => $tag]);
+            array_push($tagCollection, $t->id);
+        }
+        return $tagCollection;
     }
 }
