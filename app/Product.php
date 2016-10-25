@@ -52,8 +52,8 @@ class Product extends Model
         return $query->where('recommend', '=',1);
     }
 
-    public function scopeCategory($query)
+    public function scopeOfCategory($query, $id)
     {
-        return $query->where('category', '=', 1);
+        return $query->where('category_id', '=', $id);
     }
 }

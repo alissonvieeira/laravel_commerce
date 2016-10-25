@@ -28,4 +28,6 @@ Route::group(['prefix' => 'admin', 'where' => ['id' => '[0-9]+']], function()
     });
 });
 
-Route::get('/', 'StoreController@index');
+Route::get('/', ['as' => 'store.index', 'uses' => 'StoreController@index']);
+Route::get('product/{id}', ['as' => 'store.product', 'uses' => 'StoreController@product']);
+Route::get('category/{id}', ['as' => 'store.category', 'uses' => 'StoreController@category']);
