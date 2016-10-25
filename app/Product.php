@@ -46,4 +46,14 @@ class Product extends Model
     {
         return $query->where('featured','=',1);
     }
+
+    public function scopeRecommend($query)
+    {
+        return $query->where('recommend', '=',1);
+    }
+
+    public function scopeCategory($query)
+    {
+        return $query->where('category', '=', 1);
+    }
 }
