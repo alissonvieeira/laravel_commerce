@@ -4,7 +4,6 @@
     @include('store.partial.categories')
 @stop
 
-
 @section('content')
     <div class="col-sm-9 padding-right">
         <div class="features_items"><!--features_items-->
