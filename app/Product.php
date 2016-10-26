@@ -49,7 +49,7 @@ class Product extends Model
 
     public function scopeRecommend($query)
     {
-        return $query->where('recommend', '=',1);
+        return $query->where('recommend','=',1);
     }
 
     public function scopeOfCategory($query, $id)
