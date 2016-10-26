@@ -31,4 +31,6 @@ elixir(function(mix) {
         'jquery.prettyPhoto.js',
         'main.js',
     ], 'public/js/all.js');
+
+    mix.version(['css/all.css', 'js/all.js']);
 });

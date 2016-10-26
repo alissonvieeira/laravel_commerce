@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <title>Home | E-Shop</title>
 
-    <link href="css/all.css" rel="stylesheet">
+    <link href="{{ elixir('css/all.css') }}" rel="stylesheet">
 
 </head><!--/head-->
 
@@ -138,13 +138,7 @@
 
 </footer><!--/Footer-->
 
-
-
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.scrollUp.min.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script src="js/main.js"></script>
+<script src="{{ elixir('js/all.js') }}"></script>
 
 </body>
 </html>
