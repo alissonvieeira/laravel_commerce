@@ -33,7 +33,7 @@ class CheckoutController extends Controller
             }
 
             dd($order->items);
-            
+
         }
     }
 }

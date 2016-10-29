@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'admin', 'where' => ['id' => '[0-9]+']], function()
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'where' => ['id' => '[0-9]+']], function()
 {
     Route::group(['prefix' => 'categories'], function(){
         Route::get('', ['as' => 'categories.index', 'uses' => 'CategoriesController@index']);
@@ -36,3 +36,9 @@ Route::get('cart/add/{id}', ['as' => 'cart.add', 'uses' => 'CartController@add']
 Route::get('cart/destroy/{id}', ['as' => 'cart.destroy', 'uses' => 'CartController@destroy']);
 
 Route::get('checkout/placeOrder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
+
+Route::controllers([
+   'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+    'test' => 'TestController'
+]);
