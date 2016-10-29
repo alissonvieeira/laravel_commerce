@@ -2,6 +2,7 @@
 
 namespace CodeCommerce\Http\Controllers;
 
+use CodeCommerce\Category;
 use CodeCommerce\Order;
 use CodeCommerce\OrderItem;
 use Illuminate\Http\Request;
@@ -36,8 +37,13 @@ class CheckoutController extends Controller
                 $order->items()->create(['product_id' => $k, 'price' => $item['price'], 'qtd' => $item['qtd']]);
             }
 
-            dd($order->items);
+            $cart->clear();
 
+            return view('store.checkout', compact('order'));
         }
+
+        $categories = Category::all();
+
+        return view('store.checkout', ['cart' => 'empty', 'categories' => $categories]);
     }
 }
