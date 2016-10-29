@@ -21,11 +21,14 @@ class TestController extends Controller
         if(Auth::attempt($data)) {
             return "Logou";
         }
-        */
+
 
         if(Auth::check()) {
             return "Logado";
         }
+        */
+
+        return Auth::user();
 
         return "falhou";
     }
