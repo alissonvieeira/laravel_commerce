@@ -41,6 +41,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('account/orders', ['as' => 'account.orders', 'uses' => 'AccountController@orders']);
 });
 
+Route::get('evento', function(){
+
+    event(new \CodeCommerce\Events\CheckoutEvent());
+    
+});
+
 Route::controllers([
    'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
