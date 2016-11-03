@@ -9,7 +9,9 @@ class UserTableSeeder extends Seeder
 
     public function run()
     {
-        DB::table('users')->truncate();
+        //Comentando porque no POSTGRESQL tem que ser delete e não truncate
+        //DB::table('users')->truncate();
+        DB::table('users')->delete();
 
         factory(CodeCommerce\User::class)->create(
             [
